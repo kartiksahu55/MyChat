@@ -1,5 +1,6 @@
-import { useState } from "react";
-
+import { useEffect, useState, useContext } from "react";
+import { WebContext } from "../../pages/WebWindow";
+import { app_data } from "../../constant";
 import {
   ToggleButtonGroup,
   ToggleButton,
@@ -12,14 +13,24 @@ import Diversity3Icon from "@mui/icons-material/Diversity3";
 import SettingsIcon from "@mui/icons-material/Settings";
 
 const NavWindow = () => {
-  const [view, setView] = useState("chat");
+  const { webValue, setWebValue } = useContext(WebContext);
+
+  const [view, setView] = useState();
+
+  console.log("view:", view);
 
   const handleChange = (event, nextView) => {
     setView(nextView);
   };
 
+  useEffect(() => {
+    view
+      ? setWebValue({ ...webValue, nav: view })
+      : setWebValue({ ...webValue, nav: app_data.appName });
+  }, [view]);
+
   return (
-    <div className="h-full w-preferece bg-primary text-center py-outer flex flex-col justify-between px-2">
+    <div className="h-full w-[75px] bg-primary text-center py-outer flex flex-col justify-between px-2">
       <ToggleButtonGroup
         orientation="vertical"
         value={view}
@@ -79,7 +90,7 @@ const NavWindow = () => {
 
         <Tooltip title="Profile" placement="right" disableInteractive>
           <ToggleButton value="profile" aria-label="profile" color="white">
-            <Avatar />
+            <Avatar src=""/>
           </ToggleButton>
         </Tooltip>
       </ToggleButtonGroup>

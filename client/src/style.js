@@ -20,3 +20,5 @@ export const muiTheme = createTheme({
     border: 1,
   },
 });
+
+export const heading3 = "text-[18px] font-semibold";

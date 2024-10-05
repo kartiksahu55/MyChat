@@ -1,5 +1,5 @@
-import ListWindow from "./ListWindow";
-import DisplayWindow from "./DisplayWindow";
+import MenuWindow from "./MenuWindow";
+import ScreenWindow from "./ScreenWindow";
 import NavWindow from "./NavWindow";
 
-export { DisplayWindow, ListWindow, NavWindow };
+export { ScreenWindow, MenuWindow, NavWindow };

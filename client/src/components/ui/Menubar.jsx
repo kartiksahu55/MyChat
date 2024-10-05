@@ -1,4 +1,4 @@
-import { IconButton, Menu, MenuItem, styled } from "@mui/material";
+import { IconButton, Menu, MenuItem, Slide, styled } from "@mui/material";
 import { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Link } from "react-router-dom";
@@ -62,6 +62,7 @@ const Menubar = () => {
         <StyledMenuItem onClick={handleClose}>
           <Link to="/login">Log Out</Link>
         </StyledMenuItem>
+        {/* <Slide></Slide> */}
       </StyledMenu>
     </>
   );
